@@ -19,7 +19,7 @@ const Links = () => {
   }, []);
 
   return (
-    <div className="relative flex justify-end ">
+    <div className="relative flex justify-start ">
       <div className="relative" ref={dropdownRef}>
         <button
           onClick={() => setIsOpen(!isOpen)}
