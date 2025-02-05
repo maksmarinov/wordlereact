@@ -98,11 +98,11 @@ body {
 .gameWon {
   position: absolute;
   background-color: #adff2f;
-  opacity: 0.6;
+  opacity: 0.8;
   top: 0;
   left: 0;
   width: 100%;
-  height: 52%;
+  height: 100%;
   font-weight: 800;
   font-size: 33px;
   display: flex;
@@ -128,14 +128,15 @@ body {
 .gameLost {
   display: flex;
   position: absolute;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: #9b7e00;
-  opacity: 0.6;
+  opacity: 0.8;
   top: 0;
   left: 0;
   width: 100%;
-  height: 52%;
+  height: 100%;
   font-weight: 800;
   font-size: 33px;
   color: rgb(0, 0, 0);

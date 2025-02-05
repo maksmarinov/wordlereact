@@ -24,7 +24,6 @@ export const Game: React.FC = () => {
     keyboardLayout.map((row) => row.map(() => "blueviolet"))
   );
 
-  const [lastAttempt, setLastAttempt] = useState(false);
   const [currentCol, setCurrentCol] = useState<number>(0);
   const [currentRow, setCurrentRow] = useState<number>(0);
   const [userGuess, setUserGuess] = useState<string>("");
@@ -53,24 +52,21 @@ export const Game: React.FC = () => {
             const test1 = [...guessGrid[currentRow]];
             const test2 = [...word];
             const newColorGrid = [...colorLayoutGrid];
-
             let winCounter = 0;
             for (let i = 0; i < test1.length; i++) {
               if (test1[i] === word[i]) {
                 winCounter++;
                 if (winCounter === 5) {
                   setWin(true);
+                } else if (currentRow === 5) {
+                  setLose(true);
                 }
+
                 newColorGrid[currentRow][i] = "#003d05";
                 test1[i] = "-";
                 test2[i] = "";
               } else {
                 newColorGrid[currentRow][i] = "#29172b";
-              }
-              if (currentRow === 5 && winCounter != 5) {
-                setLose(true);
-                setUserGuess("");
-                setLastAttempt(true);
               }
             }
             for (let i = 0; i < test1.length; i++) {
@@ -103,7 +99,7 @@ export const Game: React.FC = () => {
           }, 2200);
         }
       } else if (buttonVal === "DEL") {
-        if (currentCol > 0 && !lastAttempt) {
+        if (currentCol > 0 && currentRow < 6) {
           const newGuess = userGuess.slice(0, -1);
           setInvalidWord(false);
           newGrid[currentRow][currentCol - 1] = "";
@@ -159,13 +155,33 @@ export const Game: React.FC = () => {
         className="gameWon"
         style={{ visibility: win ? "visible" : "hidden" }}
       >
-        <h1>YOU WON!</h1>
+        <h1>
+          YOU WON!{" "}
+          <div>
+            <button
+              className="newGame"
+              style={{ opacity: 1 }}
+              onClick={handleNewGame}
+            >
+              {"<"} NEW GAME{">"}
+            </button>
+          </div>{" "}
+        </h1>
       </div>
       <div
         className="gameLost"
-        style={{ visibility: lose ? "visible" : "hidden" }}
+        style={{ visibility: lose && !win ? "visible" : "hidden" }}
       >
-        LOSS
+        LOSS... Word was {word}
+        <div>
+          <button
+            className="newGame"
+            style={{ opacity: 1 }}
+            onClick={handleNewGame}
+          >
+            {"<"} NEW GAME{">"}
+          </button>
+        </div>
       </div>
       <div
         className={"invalidWord"}
@@ -197,13 +213,7 @@ export const Game: React.FC = () => {
           </div>
         ))}
       </div>
-      <button
-        className="newGame"
-        style={{ opacity: 1 }}
-        onClick={handleNewGame}
-      >
-        {"<"} NEW GAME{">"}
-      </button>
+      <div>{word}</div>
     </>
   );
 };
