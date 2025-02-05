@@ -62,7 +62,7 @@ body {
   height: 55px;
   margin: 4px 4px;
   font-family: "Orbitron", serif;
-  text-align: center;
+  text-align: center !important;
   font-size: 44px;
   font-weight: 800;
   color: aliceblue;
