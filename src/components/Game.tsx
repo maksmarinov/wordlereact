@@ -18,7 +18,7 @@ export const Game: React.FC = () => {
     ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"],
     ["A", "S", "D", "F", "G", "H", "J", "K", "L"],
     ["Z", "X", "C", "V", "B", "N", "M"],
-    ["DEL", "ENT"],
+    ["DELETE", "ENTER"],
   ];
   const [kbdColors, setKbdColors] = useState<string[][]>(
     keyboardLayout.map((row) => row.map(() => "blueviolet"))
@@ -43,7 +43,7 @@ export const Game: React.FC = () => {
     if (event.target instanceof HTMLButtonElement) {
       const buttonVal: string = event.target.textContent || "";
 
-      if (buttonVal === "ENT" && userGuess.length === 5) {
+      if (buttonVal === "ENTER" && userGuess.length === 5) {
         if (loading) {
           return;
         }
@@ -98,7 +98,7 @@ export const Game: React.FC = () => {
             setInvalidWord(false);
           }, 2200);
         }
-      } else if (buttonVal === "DEL") {
+      } else if (buttonVal === "DELETE") {
         if (currentCol > 0 && currentRow < 6) {
           const newGuess = userGuess.slice(0, -1);
           setInvalidWord(false);
@@ -107,7 +107,11 @@ export const Game: React.FC = () => {
           setGuessGrid(newGrid);
           setUserGuess(newGuess);
         }
-      } else if (currentCol < 5 && buttonVal != "DEL" && buttonVal != "ENT") {
+      } else if (
+        currentCol < 5 &&
+        buttonVal != "DELETE" &&
+        buttonVal != "ENTER"
+      ) {
         const newGuess = userGuess + buttonVal;
         setUserGuess(newGuess);
         newGrid[currentRow][currentCol] = buttonVal;
@@ -121,16 +125,16 @@ export const Game: React.FC = () => {
   };
 
   const renderKbd = (keyName: string, rowIndex: number, colIndex: number) => {
-    if (keyName === "DEL") {
+    if (keyName === "DELETE") {
       return (
-        <button className="DEL" key={`${rowIndex}-${colIndex}`}>
+        <button className="DELETE" key={`${rowIndex}-${colIndex}`}>
           {keyName}
         </button>
       );
-    } else if (keyName === "ENT") {
+    } else if (keyName === "ENTER") {
       return (
         <button
-          className="ENT"
+          className="ENTER"
           key={`${rowIndex}-${colIndex}`}
           disabled={loading}
         >

@@ -1,5 +1,7 @@
+@import "tailwindcss";
+
 body {
-  background-color: rgb(12, 10, 19);
+  background-color: #0c0a13;
   color: #adff2f;
   font-family: "Orbitron", serif;
 }
@@ -41,8 +43,8 @@ body {
   margin-bottom: -35px;
 }
 .keyboardButton,
-.DEL,
-.ENT {
+.DELETE,
+.ENTER {
   touch-action: manipulation;
   border: 0px;
   border-radius: 3px;
@@ -57,27 +59,29 @@ body {
   cursor: auto;
 }
 .inputCell {
+  display: flex;
+  justify-content: center;
   border-radius: 3px;
   font-size: 25px;
   width: 55px;
   height: 55px;
   margin: 4px 4px;
   font-family: "Orbitron", serif;
-  text-align: center !important;
   font-size: 44px;
   font-weight: 800;
   color: aliceblue;
+  align-items: center;
 }
 
-.DEL,
-.ENT {
+.DELETE,
+.ENTER {
   height: 30px;
-  width: 75px;
+  width: 105px;
   background-color: #adff2f;
-  color: blueviolet;
+  color: #8a2be2;
 }
-.DEL:hover,
-.ENT:hover {
+.DELETE:hover,
+.ENTER:hover {
   background-color: rgb(1, 187, 201);
 }
 .keyboardButton:hover {
