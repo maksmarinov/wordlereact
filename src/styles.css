@@ -28,8 +28,8 @@ body {
   display: flex;
   flex-direction: column;
   align-self: center;
-  text-align: center;
-  max-width: 500px;
+  text-align: right;
+  width: 300px;
   max-height: 60px;
   margin-bottom: 5px;
   font-size: 20px;
@@ -111,12 +111,13 @@ body {
 }
 .newGame {
   background-color: black;
-  color: blueviolet;
+  color: rgb(211, 195, 226);
   font-size: large;
   border: 2px solid blueviolet;
   border-radius: 2px;
   font-weight: 600;
   border-radius: 2px;
+  font-family: "Orbitron", serif;
 }
 .newGame:hover {
   background-color: blueviolet;
