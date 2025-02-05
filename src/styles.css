@@ -15,6 +15,7 @@ body {
   align-items: center;
   flex-direction: column;
   margin-bottom: 10px;
+  gap: 6px;
 }
 .kbdRow,
 .inputRow {
@@ -23,6 +24,7 @@ body {
   align-items: center;
   flex-direction: row;
   touch-action: manipulation;
+  gap: 5px;
 }
 .title {
   display: flex;
