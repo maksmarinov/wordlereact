@@ -31,7 +31,8 @@ export const Game: React.FC = () => {
   const [invalidWord, setInvalidWord] = useState<boolean>(false);
   const [win, setWin] = useState<boolean>(false);
   const [lose, setLose] = useState<boolean>(false);
-  const { isValid, loading } = useValidateWord(userGuess);
+  const [wordToValidate, setWordToValidate] = useState<string>("");
+  const { isValid, loading } = useValidateWord(wordToValidate);
   const word = useGetWord();
 
   const handleNewGame = () => {
@@ -45,10 +46,9 @@ export const Game: React.FC = () => {
 
       if (buttonVal === "ENT" && userGuess.length === 5) {
         if (loading) {
-          console.log("Please wait, validating the word...");
           return;
         }
-        if (isValid) {
+        if (isValid && !loading) {
           if (currentCol === 5 && currentRow <= 5) {
             const test1 = [...guessGrid[currentRow]];
             const test2 = [...word];
@@ -100,11 +100,12 @@ export const Game: React.FC = () => {
           setInvalidWord(true);
           setTimeout(() => {
             setInvalidWord(false);
-          }, 1750);
+          }, 2200);
         }
       } else if (buttonVal === "DEL") {
         if (currentCol > 0 && !lastAttempt) {
           const newGuess = userGuess.slice(0, -1);
+          setInvalidWord(false);
           newGrid[currentRow][currentCol - 1] = "";
           setCurrentCol(currentCol - 1);
           setGuessGrid(newGrid);
@@ -116,6 +117,9 @@ export const Game: React.FC = () => {
         newGrid[currentRow][currentCol] = buttonVal;
         setGuessGrid(newGrid);
         setCurrentCol(currentCol + 1);
+        if (newGuess.length === 5) {
+          setWordToValidate(newGuess);
+        }
       }
     }
   };
@@ -165,7 +169,7 @@ export const Game: React.FC = () => {
       </div>
       <div
         className={"invalidWord"}
-        style={{ display: invalidWord ? "block" : "none" }}
+        style={{ display: !invalidWord ? "none" : "block" }}
       >
         Word not in dictionary!
       </div>

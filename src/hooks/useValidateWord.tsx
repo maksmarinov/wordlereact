@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 
 interface ValidationResult {
-  isValid: boolean | null; // null indicates that validation hasn't completed yet
+  isValid: boolean;
   loading: boolean;
 }
 const useValidateWord = (wordToValidate: string): ValidationResult => {
   const [isValid, setValid] = useState<boolean>(true);
-  const [loading, setLoading] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(true);
   useEffect(() => {
     const validateWord = async () => {
       setLoading(true);
