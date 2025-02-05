@@ -98,7 +98,7 @@ body {
 .gameWon {
   position: absolute;
   background-color: #adff2f;
-  opacity: 0.8;
+  opacity: 0.95;
   top: 0;
   left: 0;
   width: 100%;
@@ -132,7 +132,7 @@ body {
   justify-content: center;
   align-items: center;
   background-color: #9b7e00;
-  opacity: 0.8;
+  opacity: 0.95;
   top: 0;
   left: 0;
   width: 100%;
