@@ -213,7 +213,6 @@ export const Game: React.FC = () => {
           </div>
         ))}
       </div>
-      <div>{word}</div>
     </>
   );
 };
