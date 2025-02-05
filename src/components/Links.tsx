@@ -35,7 +35,7 @@ const Links = () => {
 
         {isOpen && (
           <>
-            <div className="absolute right-0 mt-2 w-40 bg-black shadow-lg rounded-md">
+            <div className="absolute left-2 mt-2 w-40 bg-black shadow-lg rounded-md">
               <a
                 href="https://github.com/maksmarinov/wordlereact"
                 target="_blank"
