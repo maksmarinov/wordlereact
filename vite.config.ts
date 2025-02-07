@@ -3,7 +3,7 @@ import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 import svgr from "vite-plugin-svgr";
 const ReactCompilerConfig = {
-  /* ... */
+  target: "19", // '17' | '18' | '19'
 };
 
 // https://vite.dev/config/
