@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.0.3",
-    "react": "^18.3.1",
+    "react": "^19.0.0",
     "react-compiler-runtime": "^19.0.0-beta-714736e-20250131",
     "react-dom": "^18.3.1"
   },
