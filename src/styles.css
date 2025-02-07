@@ -13,6 +13,7 @@ body {
 .inputGrid,
 .keyboard {
   display: flex;
+  position: relative; /* Ensure relative positioning */
   justify-content: center;
   align-items: center;
   flex-direction: column;
@@ -98,6 +99,12 @@ body {
   color: black;
   font-size: large;
   font-weight: bold;
+  position: absolute; /* Add absolute positioning */
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Adjust for centering */
+  z-index: 11; /* Ensure it's on top */
+  padding: 10px; /* Add some padding */
 }
 .gameWon {
   position: absolute;
@@ -114,6 +121,7 @@ body {
   align-items: center;
   color: rgb(0, 0, 0);
   flex-direction: column;
+  z-index: 10; /* Ensure it's on top */
 }
 .newGame {
   background-color: black;
@@ -144,4 +152,5 @@ body {
   font-weight: 800;
   font-size: 33px;
   color: rgb(0, 0, 0);
+  z-index: 10; /* Ensure it's on top */
 }
