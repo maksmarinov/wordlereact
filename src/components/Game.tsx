@@ -152,8 +152,8 @@ export const Game: React.FC = () => {
 
   const renderKbd = (keyName: string, rowIndex: number, colIndex: number) => {
     const buttonProps = {
-      "aria-label": keyName, // Add aria-label for screen readers
-      tabIndex: 0, // Make buttons focusable
+      "aria-label": keyName,
+      tabIndex: 0,
     };
 
     if (keyName === "DELETE") {
